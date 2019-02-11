@@ -8,8 +8,19 @@ module.exports = homework;
   f(1) = 1
   f(10) = 55
 */
-homework.fibonacci = function(n){
-
+homework.fibonacci = function fib(n){
+  if (n===0){
+    return 0;
+  }
+  else if (n===1){
+    return 1;
+  }
+  else if (n>1){
+    return fib(n-1)+fib(n-2);
+  }
+  else{
+    return null;
+  }
 };
 
 /*
@@ -20,7 +31,24 @@ homework.fibonacci = function(n){
   Don't use the Array sort() method... that would be lame.
 */
 homework.sort = function(array) {
+  // bubble sort
+  let sortedArray = [];
+  let arrayClone = array.slice(0);
 
+  for (let j = 0; j<array.length; j++){
+    let minIndex = -1;
+    let minValue = Infinity;
+    for (let i = 0; i<arrayClone.length; i++){
+      let value = arrayClone[i];
+      if (value<minValue){
+        minIndex = i;
+        minValue = value;
+      }
+    }
+    // add the smallest index to sortedArray, and remove it from arrayClone
+    sortedArray.push(arrayClone.splice(minIndex,1)[0]);
+  }
+  return sortedArray;
 };
 
 /*
@@ -30,8 +58,13 @@ homework.sort = function(array) {
   f(1) = 1
   f(3) = 6
 */
-homework.factorial = function(n){
-
+homework.factorial = function fac(n){
+  if (n===0 || n===1){
+    return 1;
+  }
+  else if (n>1){
+    return n*fac(n-1);
+  }
 };
 
 /*
@@ -45,7 +78,11 @@ homework.factorial = function(n){
 
 */
 homework.rotateLeft = function(array, n) {
-
+  let newArray = [];
+  for (let i = 0; i<array.length; i++){
+    newArray.push(array[(i+n) % array.length]);
+  }
+  return newArray;
 };
 
 /*
@@ -69,5 +106,7 @@ homework.rotateLeft = function(array, n) {
   Return false if not balanced
 */
 homework.balancedBrackets = function(bracketsString){
-
+  for (let i = 0; i<bracketsString.length; i++){
+    
+  }
 };
