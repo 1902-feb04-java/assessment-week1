@@ -1,5 +1,5 @@
 var homework = {};
-module.exports = homework;
+// module.exports = homework;
 
 /*
   1. Return the nth fibonacci number
@@ -63,7 +63,7 @@ homework.rotateLeft = function(array, n) {
     {
      temp.push(array.shift());
     }
-    return temp.concat(array);
+    return array.concat(temp);
 };
 
 /*
