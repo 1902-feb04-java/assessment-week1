@@ -9,7 +9,15 @@ module.exports = homework;
   f(10) = 55
 */
 homework.fibonacci = function(n){
+  if n===0 {
+    return 0;
+  } else {
+    for (i=0; i < n; i++) {
 
+    }  
+    return 
+  }
+  
 };
 
 /*
@@ -20,7 +28,8 @@ homework.fibonacci = function(n){
   Don't use the Array sort() method... that would be lame.
 */
 homework.sort = function(array) {
-
+  let length = array.length;
+  for ()
 };
 
 /*
@@ -31,7 +40,19 @@ homework.sort = function(array) {
   f(3) = 6
 */
 homework.factorial = function(n){
+  let factorial = (n>0) ? n : 1 ;
+  if (n>0) {
+    factorial = factorial * homework.factorial(factorial-1);
+  } else { 
+    return 1;
+  };
+ 
+  if (n>0) {
 
+    homework.factorial(n-1);
+  }
+  
+  return factorial; 
 };
 
 /*
