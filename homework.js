@@ -9,7 +9,11 @@ module.exports = homework;
   f(10) = 55
 */
 homework.fibonacci = function(n){
-
+  let fibs = [0,1];
+  for (let i=2;i<=n;i++) {
+    fibs.push(fibs[i-1] + fibs[i-2]);
+  }
+  return fibs[n];
 };
 
 /*
@@ -20,7 +24,14 @@ homework.fibonacci = function(n){
   Don't use the Array sort() method... that would be lame.
 */
 homework.sort = function(array) {
-
+  for (let i=1; i<array.length; i++) {
+    for (let j=i; j>0 && array[j-1] > array[j]; j--) {
+      let temp = array[j];
+      array[j] = array[j-1];
+      array[j-1] = temp;
+    }
+  }
+  return array;
 };
 
 /*
@@ -31,7 +42,11 @@ homework.sort = function(array) {
   f(3) = 6
 */
 homework.factorial = function(n){
-
+  let running_product = 1;
+  for (i=1;i<=n;i++) {
+    running_product = running_product * i;
+  }
+  return running_product;
 };
 
 /*
@@ -45,7 +60,10 @@ homework.factorial = function(n){
 
 */
 homework.rotateLeft = function(array, n) {
-
+  for (i=1; i<= n%array.length; i++) {
+    array.push(array.shift());
+  }
+  return array;
 };
 
 /*
@@ -68,6 +86,3 @@ homework.rotateLeft = function(array, n) {
   Return true if balanced
   Return false if not balanced
 */
-homework.balancedBrackets = function(bracketsString){
-
-};
