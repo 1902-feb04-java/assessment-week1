@@ -35,12 +35,12 @@ homework.sort = function(array) {
     check = true;
     for(let i = 0; i < array.length; i++){
       if(array[i] > array[i+1]){
-        // set check to false for the entire array iteration
-        check = false;
         // switch array elements
         let temp = array[i];
         array[i] = array[i+1];
         array[i+1] = temp;
+        // set check to false for the entire array iteration
+        check = false;
       }
     }
   }
@@ -60,11 +60,8 @@ homework.factorial = function(n){
   if (n === 0 || n === 1){
     return 1;
   }
-  // if(fact[n] > 0){
-  //   return(fact[n]);
-  // }
-  fact = factorial(n-1) * n;
-  return fact;
+  // get the factorial using recursion
+  return fact = n * factorial(n-1);
 };
 
 /*
@@ -78,7 +75,15 @@ homework.factorial = function(n){
 
 */
 homework.rotateLeft = function(array, n) {
-
+  for(let i = 0; i < n; i++){
+    // store first element in temp
+    let temp = array[i];
+    // use shift to remove first element and shift all others to a lower index
+    array.shift();
+    // push removed element to the end of the array.
+    array.push(temp);
+  }
+  return array;
 };
 
 /*
