@@ -28,11 +28,16 @@ homework.fibonacci = function(n){
   Don't use the Array sort() method... that would be lame.
 */
 homework.sort = function(array) {
-  for(let i = 0; i < array.length; i++){
-    if(array[i] > array[i+1]){
-      let temp = array[i];
-      array[i] = array[i+1];
-      array[i+1] = temp;
+  let check = false;
+  while(!check){
+    check = true;
+    for(let i = 0; i < array.length; i++){
+      if(array[i] > array[i+1]){
+        check = false;
+        let temp = array[i];
+        array[i] = array[i+1];
+        array[i+1] = temp;
+      }
     }
   }
   return array;
