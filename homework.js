@@ -9,6 +9,11 @@ module.exports = homework;
   f(10) = 55
 */
 homework.fibonacci = function(n){
+  if (n<=1){
+    return 1;
+  }
+
+  //i ran out of time and failed
 
 };
 
@@ -20,7 +25,21 @@ homework.fibonacci = function(n){
   Don't use the Array sort() method... that would be lame.
 */
 homework.sort = function(array) {
+  let isDone = false;
 
+  while (!isDone){
+    isDone = true;
+    for (var i = 1; i < array.length; i++){
+      if(array[i+1] > array[i])
+      {
+        isDone = false;
+        let tempAr = array[i - 1];
+        array[i-1] = array[i];
+        array[i] = tempAr;
+      }
+    }
+  }
+  return(array);
 };
 
 /*
@@ -31,7 +50,21 @@ homework.sort = function(array) {
   f(3) = 6
 */
 homework.factorial = function(n){
+  
+  let results = n;
 
+  if(results === 0 || results === 1){
+    return(1);
+  }
+
+  while(n > 1){
+    n--;
+    results *= n;
+  }
+
+  return(results);
+
+  
 };
 
 /*
@@ -45,7 +78,16 @@ homework.factorial = function(n){
 
 */
 homework.rotateLeft = function(array, n) {
+  let i = 0;
 
+  while(i < n){
+    let tempPop = array[0];
+    array.pop();
+    array.push(tempPop);
+    i++
+  }
+
+  return(array);
 };
 
 /*
