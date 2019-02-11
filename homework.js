@@ -10,8 +10,9 @@ module.exports = homework;
 */
 homework.fibonacci = function(n){
   let index = 1, temp, num =0;
-
+  // for loop to get the fib number at nth index
   for(; n >= 0;){
+    // add numbers together decreasing from nth index
     temp = index;
     index += num;
     num = temp;
@@ -30,10 +31,13 @@ homework.fibonacci = function(n){
 homework.sort = function(array) {
   let check = false;
   while(!check){
+    // if array is already sorted exit while loop; when for loop is done exit while
     check = true;
     for(let i = 0; i < array.length; i++){
       if(array[i] > array[i+1]){
+        // set check to false for the entire array iteration
         check = false;
+        // switch array elements
         let temp = array[i];
         array[i] = array[i+1];
         array[i+1] = temp;
@@ -51,7 +55,16 @@ homework.sort = function(array) {
   f(3) = 6
 */
 homework.factorial = function(n){
-
+  let fact;
+  // check if nth number is 0 or 1, both cases return a 1
+  if (n === 0 || n === 1){
+    return 1;
+  }
+  // if(fact[n] > 0){
+  //   return(fact[n]);
+  // }
+  fact = factorial(n-1) * n;
+  return fact;
 };
 
 /*
