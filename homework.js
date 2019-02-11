@@ -105,8 +105,43 @@ homework.rotateLeft = function(array, n) {
   Return true if balanced
   Return false if not balanced
 */
-homework.balancedBrackets = function(bracketsString){
+homework.balancedBrackets = function balance(bracketsString){
+  let targetChar = null;
+  let openingIndex = -1;
   for (let i = 0; i<bracketsString.length; i++){
-    
+    let char = bracketsString[i];
+    if (char==="("){
+      targetChar = ")";
+      openingIndex = i;
+      break;
+    }
+    else if (char==="{"){
+      targetChar = "}";
+      openingIndex = i;
+      break;
+    }
+    else if (char==="["){
+      targetChar = "]";
+      openingIndex = i;
+      break;
+    }
+    // if you encounter a closing bracket before a beginning bracket, not balanced
+    else if (char === ")" || char === "}" || char === "]"){
+      return false;
+    }
   }
+  if (targetChar === null){
+    // parsed through without finding any opening brackets
+    return true;
+  }
+  for (let i = bracketsString.length-1; i>=0; i--){
+    if (bracketsString[i] === targetChar){
+      // if you found the matching bracket, remove matching brackets and test string again
+      // Needs to be done with slices and joining
+      //bracketsString.splice(openingIndex,1);
+      //bracketsString.splice(i-1,1);
+      return balance(bracketsString);
+    }
+  }
+  return false;
 };
