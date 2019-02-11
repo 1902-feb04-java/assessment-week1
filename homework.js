@@ -9,7 +9,17 @@ module.exports = homework;
   f(10) = 55
 */
 homework.fibonacci = function(n){
+  let num_a = 1;
+  let num_b = 0;
+  let temp;
 
+  while (n>= 0){
+    temp = num_a;
+    num_a = num_a + num_b;
+    num_b = temp;
+    n = n - 1;
+  }
+  return num_b;
 };
 
 /*
@@ -20,7 +30,19 @@ homework.fibonacci = function(n){
   Don't use the Array sort() method... that would be lame.
 */
 homework.sort = function(array) {
-
+  for(let i = 0; i < array.length; i++){
+    
+    let min_index = i;
+    for(let j = i + 1; j < array.length; j++){
+      if(array[j] < array[min_index]){
+       min_index = j;
+      }
+    }
+    var temp = array[i];
+    array[i] = array[min_index];
+    array[min_index] = temp;
+  }
+  return array;
 };
 
 /*
@@ -31,7 +53,14 @@ homework.sort = function(array) {
   f(3) = 6
 */
 homework.factorial = function(n){
-
+  let result = n;
+  if (n === 0 || n === 1) 
+    return 1; 
+  while (n > 1) { 
+    n = n - 1;
+    result = result * n;
+  }
+  return result;
 };
 
 /*
@@ -45,6 +74,16 @@ homework.factorial = function(n){
 
 */
 homework.rotateLeft = function(array, n) {
+  for(let i=1; i <= n; i++){
+    for(let j=0; j < array.length; j++){
+      let temp;
+      temp = array[0];
+      if(j !=0){
+      array[j-1] = array[j];
+      }
+      array[array.length-1] = temp;  
+    }
+  }
 
 };
 
