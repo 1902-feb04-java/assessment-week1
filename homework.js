@@ -13,7 +13,9 @@ homework.fibonacci = function(n){
     return 1;
   }
 
-  //i ran out of time and failed
+  var fn = fibonacci(n - 1) + fibonacci(n - 2);
+
+  return(fn);
 
 };
 
@@ -84,7 +86,7 @@ homework.rotateLeft = function(array, n) {
     let tempPop = array[0];
     array.pop();
     array.push(tempPop);
-    i++
+    i++;
   }
 
   return(array);
