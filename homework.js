@@ -9,6 +9,9 @@ module.exports = homework;
   f(10) = 55
 */
 homework.fibonacci = function(n){
+    let fib = (n - 1) + (n - 2);
+    console.log(fib); 
+    return fib; 
 
 };
 
@@ -20,7 +23,13 @@ homework.fibonacci = function(n){
   Don't use the Array sort() method... that would be lame.
 */
 homework.sort = function(array) {
-
+    let arr2 = [];
+    for (i = 0; i < array.length; i++) {
+        if (array[i] < array[i + 1]) {
+           arr2.push(array[i]);
+           console.log(arr2[i]);
+     }
+   }
 };
 
 /*
