@@ -1,5 +1,5 @@
 var homework = {};
-// module.exports = homework;
+module.exports = homework;
 
 /*
   1. Return the nth fibonacci number
@@ -20,17 +20,19 @@ homework.fibonacci = function fib(n) {
   f([2,4,5,1,3,1]) = [1,1,2,3,4,5]
 
   Don't use the Array sort() method... that would be lame.
+
 */
 homework.sort = function(array) {
-    let temp;
-    for(let i = 1; i<array.length; i++)
+   for(let i = 0; i<array.length; i++)
     {
-        if(array[i]< array[i-1])
-        {
-          temp = array[i-1];
-          array[i-1] = array[i];
-          array[i] = temp;
-        }
+      let temp = array[i];
+      let previous = i-1;
+      while(previous >= 0 && array[previous]> temp)
+      {
+        array[previous+1] = array[previous];
+        previous -= 1;
+      }
+      array[previous+1] = temp;
     }
     return array;
 };
