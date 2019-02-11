@@ -8,7 +8,9 @@ module.exports = homework;
   f(1) = 1
   f(10) = 55
 */
-homework.fibonacci = function(n){
+homework.fibonacci = function fib(n) {
+  if(n<= 1) return 1;
+  return fib(n-2)+ fib(n-1);
 
 };
 
@@ -20,7 +22,17 @@ homework.fibonacci = function(n){
   Don't use the Array sort() method... that would be lame.
 */
 homework.sort = function(array) {
-
+    let temp;
+    for(let i = 1; i<array.length; i++)
+    {
+        if(array[i]< array[i-1])
+        {
+          temp = array[i-1];
+          array[i-1] = array[i];
+          array[i] = temp;
+        }
+    }
+    return array;
 };
 
 /*
@@ -30,8 +42,9 @@ homework.sort = function(array) {
   f(1) = 1
   f(3) = 6
 */
-homework.factorial = function(n){
-
+homework.factorial = function fac(n){
+    if(n <= 1) return 1;
+    return n * fac(n-1);
 };
 
 /*
@@ -45,7 +58,12 @@ homework.factorial = function(n){
 
 */
 homework.rotateLeft = function(array, n) {
-
+  let temp = [];
+    for(let i = 0; i< n; i++)
+    {
+     temp.push(array.shift());
+    }
+    return temp.concat(array);
 };
 
 /*
@@ -69,5 +87,19 @@ homework.rotateLeft = function(array, n) {
   Return false if not balanced
 */
 homework.balancedBrackets = function(bracketsString){
-
+  //A regex check would probably be better, but I don't know that very well
+  let open = 0;
+  let close = 0;
+  for(let i = 0; i<bracketsString.length; i++)
+  {
+    if(bracketsString[i] == '(' || bracketsString[i] == '{' || bracketsString[i] == '[')
+    {
+      open += 1;
+    }
+    if(bracketsString[i] == ')' || bracketsString[i] == '}' || bracketsString[i] == ']')
+    {
+      close += 1;
+    }
+  }
+  return open === close; //This does not correctly match the type of brackets, so '([)]' would return true
 };
