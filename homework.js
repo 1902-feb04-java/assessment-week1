@@ -9,7 +9,8 @@ module.exports = homework;
   f(10) = 55
 */
 homework.fibonacci = function(n){
-
+if (n <=1) return 1;
+return fibonacci(n-1) + fibonacci(n+2);
 };
 
 /*
@@ -20,7 +21,16 @@ homework.fibonacci = function(n){
   Don't use the Array sort() method... that would be lame.
 */
 homework.sort = function(array) {
-
+let tempArray = [];
+for (i = 0; i <array.length; i++) {
+  for (j = 0; j <array.length; j++){
+    if (array[j] > array[i]){
+      tempArray = array[j];
+      array[j]= array[j+1];
+      array[j+1] = tempArray;
+    }
+  }// what I'm doing here is comparing two consecutive indices and moving it behind if [j] is larger than [i]
+}
 };
 
 /*
@@ -31,7 +41,13 @@ homework.sort = function(array) {
   f(3) = 6
 */
 homework.factorial = function(n){
-
+  let temp = n;
+  if (n <= 1) return 1;
+  while (n>1){
+    n--;
+    temp *= n;
+  }
+  return temp;
 };
 
 /*
@@ -45,6 +61,12 @@ homework.factorial = function(n){
 
 */
 homework.rotateLeft = function(array, n) {
+  let tempArray = array;
+  for (let i = 0; i <n; i++){
+    tempArray.push(tempArray[0]);
+    tempArray.shift();
+  }
+  return tempArray;
 
 };
 
@@ -69,5 +91,6 @@ homework.rotateLeft = function(array, n) {
   Return false if not balanced
 */
 homework.balancedBrackets = function(bracketsString){
-
+  let revStr = bracketsString.split('').reverse().join('');
+  return revStr === bracketsString;
 };
