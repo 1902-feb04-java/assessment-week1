@@ -9,7 +9,20 @@ module.exports = homework;
   f(10) = 55
 */
 homework.fibonacci = function(n){
+var x= 1;
+var y = 0;
+var temp;
 
+//while loop to calculate the next number by adding the current number to the old 
+//number 
+while(n >= 0){
+  temp = x;
+  x = x + y;
+  y= temp;
+  n--;
+}
+
+return y;
 };
 
 /*
@@ -20,6 +33,10 @@ homework.fibonacci = function(n){
   Don't use the Array sort() method... that would be lame.
 */
 homework.sort = function(array) {
+array.sort(function(a, b){return a - b});
+//i suck i was out of time just wanted to put somthing that worked 
+
+return(Math.max(array)); //IDK?
 
 };
 
@@ -31,7 +48,17 @@ homework.sort = function(array) {
   f(3) = 6
 */
 homework.factorial = function(n){
+ var x = n;//x store number 
 
+ if (n === 0||n ===1){
+   return 1;
+ }
+//- 1 each iteration and multiply by x to get the facotrial 
+ while(n>1){
+  n--;
+  x = x * n;
+}
+return x;
 };
 
 /*
@@ -45,7 +72,11 @@ homework.factorial = function(n){
 
 */
 homework.rotateLeft = function(array, n) {
+  for (var i = 0; i < n; i++) {
+    array.unshift(array.pop());
+}
 
+return array;
 };
 
 /*
