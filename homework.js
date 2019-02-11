@@ -13,7 +13,7 @@ homework.fibonacci = function(n){
   let num_b = 0;
   let temp;
 
-  while (n>= 0){
+  while (n> 0){
     temp = num_a;
     num_a = num_a + num_b;
     num_b = temp;
@@ -74,15 +74,15 @@ homework.factorial = function(n){
 
 */
 homework.rotateLeft = function(array, n) {
+  let temp;
   for(let i=1; i <= n; i++){
     for(let j=0; j < array.length; j++){
-      let temp;
       temp = array[0];
       if(j !=0){
       array[j-1] = array[j];
       }
-      array[array.length-1] = temp;  
     }
+    array[array.length-1] = temp;  
   }
 
 };
