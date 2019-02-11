@@ -9,13 +9,17 @@ module.exports = homework;
   f(10) = 55
 */
 homework.fibonacci = function(n){
-  if n===0 {
+  if (n===0) {
     return 0;
   } else {
-    for (i=0; i < n; i++) {
-
+    let fib = 1;
+    lastFib = 0;
+    for (i=1; i < n; i++) {
+      lastFib = fib;
+      fib = fib + lastFib;
+      
     }  
-    return 
+    return fib;
   }
   
 };
@@ -29,7 +33,7 @@ homework.fibonacci = function(n){
 */
 homework.sort = function(array) {
   let length = array.length;
-  for ()
+  //for ()
 };
 
 /*
