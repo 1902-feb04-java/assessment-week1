@@ -12,7 +12,7 @@ homework.fibonacci = function(n){
   let x = 0;
   let y = 1;
   let z;
-  while((n-1)>0){
+  while(n>0){
     z = y;
     y = y + x;
     x = z;
