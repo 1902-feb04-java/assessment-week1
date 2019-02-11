@@ -14,13 +14,14 @@ homework.fibonacci = function(n){
   } else {
     let fib = 1;
     let lastFib = 0;
+    let newFib;
     for (i=1; i < n; i++) {
-      fib = fib + lastFib;
+      newFib = fib + lastFib; //1 
       lastFib = fib;
+      fib = newFib;
     }  
     return fib;
-  }
-  
+  } 
 };
 
 /*
@@ -32,8 +33,9 @@ homework.fibonacci = function(n){
 */
 homework.sort = function(array) {
   let length = array.length;
+  console.log(length);
   for (i=0; i<length; i++) {
-    if (array[i] > array[i+1]) {
+    if (array[i] > array[i+1] && array[i] > array[length-1]) {
       let newEnd = array.shift()
       array.push(newEnd);
     }
@@ -49,19 +51,14 @@ homework.sort = function(array) {
   f(3) = 6
 */
 homework.factorial = function(n){
-  let factorial = (n>0) ? n : 1 ;
+  let factor = (n>0) ? n : 1 ;
   if (n>0) {
-    factorial = factorial * homework.factorial(factorial-1);
+    factor = factor * homework.factorial(n-1);
   } else { 
     return 1;
   };
- 
-  if (n>0) {
-
-    homework.factorial(n-1);
-  }
   
-  return factorial; 
+  return factor; 
 };
 
 /*
