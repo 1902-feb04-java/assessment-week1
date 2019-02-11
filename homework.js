@@ -13,11 +13,10 @@ homework.fibonacci = function(n){
     return 0;
   } else {
     let fib = 1;
-    lastFib = 0;
+    let lastFib = 0;
     for (i=1; i < n; i++) {
-      lastFib = fib;
       fib = fib + lastFib;
-      
+      lastFib = fib;
     }  
     return fib;
   }
@@ -33,7 +32,13 @@ homework.fibonacci = function(n){
 */
 homework.sort = function(array) {
   let length = array.length;
-  //for ()
+  for (i=0; i<length; i++) {
+    if (array[i] > array[i+1]) {
+      let newEnd = array.shift()
+      array.push(newEnd);
+    }
+  };
+  return array;
 };
 
 /*
@@ -70,7 +75,13 @@ homework.factorial = function(n){
 
 */
 homework.rotateLeft = function(array, n) {
-
+  let arrayLast;
+  for (i=0; i<n; i++) {
+    arrayLast = array.shift();
+    array.push(arrayLast);
+  }
+  console.log(array);
+  return array;
 };
 
 /*
