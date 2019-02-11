@@ -76,9 +76,9 @@ homework.factorial = function(n){
 */
 homework.rotateLeft = function(array, n) {
   let u =0;
-  for(let i = 0; u < n;){
+  for(; u < n;){
     // store first element in temp
-    let temp = array[i];
+    let temp = array[0];
     // use shift to remove first element and shift all others to a lower index
     array.shift();
     // push removed element to the end of the array.
