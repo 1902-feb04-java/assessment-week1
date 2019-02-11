@@ -1,5 +1,5 @@
 var homework = {};
-module.exports = homework;
+//module.exports = homework;
 
 /*
   1. Return the nth fibonacci number
@@ -9,7 +9,17 @@ module.exports = homework;
   f(10) = 55
 */
 homework.fibonacci = function(n){
-
+  if (n > 1)
+  {
+    return homework.fibonacci(n-1) + homework.fibonacci(n-2);
+  }
+  else if (n === 1)
+  {
+    return 1;
+  }
+  else {
+    return 0;
+  }
 };
 
 /*
@@ -20,7 +30,21 @@ homework.fibonacci = function(n){
   Don't use the Array sort() method... that would be lame.
 */
 homework.sort = function(array) {
-
+  
+  for (let x = 0; x < array.length; x++)
+  {
+    for (let y = x+1; y < array.length; y++)
+    {
+      if (array[x] > array[y])
+      {
+        let hold;
+        hold = array[y];
+        array[y] = array[x];
+        array[x] = hold;
+      }
+    }
+  }
+  return array;
 };
 
 /*
@@ -31,7 +55,11 @@ homework.sort = function(array) {
   f(3) = 6
 */
 homework.factorial = function(n){
-
+  if (n <= 1)
+  {
+    return 1;
+  }
+  return n * homework.factorial(n-1);
 };
 
 /*
@@ -45,7 +73,12 @@ homework.factorial = function(n){
 
 */
 homework.rotateLeft = function(array, n) {
-
+  for (let x = 0; x < n; x++)
+  {
+    let hold = array.shift();
+    array.push(hold);
+  }
+  return array;
 };
 
 /*
@@ -69,5 +102,5 @@ homework.rotateLeft = function(array, n) {
   Return false if not balanced
 */
 homework.balancedBrackets = function(bracketsString){
-
+  
 };
